@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth con Gmail API</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="script.js"></script>
+    <script>
+
+        // Función que maneja la respuesta de autenticación
+        function handleCredentialResponse(response) {
+            const authorizationCode = response.code;  // Ahora estamos obteniendo el Authorization Code, no el ID Token
+            console.log("Authorization Code:", authorizationCode);
+
+            // Enviar el código al backend para obtener el Access Token
+            fetch('http://localhost:3000/getAccessToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code: authorizationCode }) // Enviar el código de autorización al backend
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("obteniendo mensajes")
+                console.log('Respuesta del servidor:', data);  // Ver qué estás recibiendo
+                console.log('Access Token:', data.access_token);
+                // Usar el access token para hacer solicitudes a la API de Gmail
+            })
+            .catch(error => {
+                console.error('Error al obtener el access_token:', error);
+            });
+        }
+
+        // Renderizar el botón de inicio de sesión de Google
+        function renderButton() {
+            google.accounts.id.initialize({
+                client_id: '45594330364-68qsjfc7lo95iq95fvam08hb55oktu4c.apps.googleusercontent.com', // Tu client_id de Google Cloud
+                callback: handleCredentialResponse, // La función que se llama después de la autenticación
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById('google-signin-btn'),
+                { theme: "outline", size: "large" } // Personaliza el botón
+            );
+        }
+
+        // Cuando la página carga, renderiza el botón
+        window.onload = function () {
+            //renderButton();
+        };
+    </script>
+</head>
+<body>
+    <h1>Autenticación OAuth con Gmail API</h1>
+
+    <!-- Botón de inicio de sesión de Google -->
+    <div id="google-signin-btn"></div>
+    <div id="google-signin-btn" onclick="autenticar()"><button>Iniciar App</button></div>
+</body>
+</html>
