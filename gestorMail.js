@@ -1,5 +1,6 @@
 //variable para mostrar la respuesta de los mails
 let respuestaObtenida = [];
+let containerMailsDecodificados = [];
 
 function obtenerTokenYAlmacenar() {
   // Si no existe el token, obtenerlo de la URL (esto debe adaptarse a tu caso)
@@ -54,25 +55,34 @@ function procesarRespuesta(data) {
       (array) => array.name == "Subject"
     );
 
-    containerMails.innerHTML += `<div class="row"> <h3>${
+    containerMails.innerHTML += `<div id="div_${index}" class="row"> <h3>${
       index + 1
-    }</h3> <input class="casilla" type="checkbox" id="input${index}" name="index"> <p>${
+    }</h3> <input class="casilla" type="checkbox" id="input_${index}" name="index"> <p>${
       subject[0].value
     }</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
+
+    //procesamos la respuesta, creamos otra variable que contiene los dato decodigicados
+    containerMailsDecodificados.push(decodificar(index));
   });
   //decodificamos respuesta
+}
+
+function decodificar(index) {
+  return obtenerCifrado(index);
 }
 
 function obtenerCifrado(mails) {
   // Imprimir los objetos en formato JSON
   respuestaObtenida[mails].payload.parts.forEach((miMail) => {
+    let devolver = "";
     try {
-      verMail(miMail.body.data);
+      devolver += devolver(miMail.body.data);
     } catch {}
   });
+  return devolver;
 }
 
-function verMail(encodedMessage) {
+function devolver(encodedMessage) {
   try {
     // Reemplazar caracteres no válidos para base64 URL-safe
     encodedMessage = encodedMessage.replace(/-/g, "+").replace(/_/g, "/");
@@ -86,25 +96,29 @@ function verMail(encodedMessage) {
     const decodedMessage = atob(encodedMessage);
 
     // Decodificar el texto UTF-8 correctamente
-    const decodedMessageCorrected = decodeURIComponent(escape(decodedMessage));
-
-    // Crear una ventana emergente con el contenido decodificado
-    const popup = window.open(
-      "",
-      "Mensaje Decodificado",
-      "width=600, height=400"
-    );
-    popup.document.write(
-      "<html><head><title>Mensaje Decodificado</title></head><body>"
-    );
-    popup.document.write("<h2>Mensaje Decodificado:</h2>");
-    popup.document.write("<pre>" + decodedMessageCorrected + "</pre>");
-    popup.document.write("</body></html>");
-    popup.document.close();
+    return decodeURIComponent(escape(decodedMessage));
   } catch (e) {
     console.error("Error al decodificar el mensaje: ", e);
     alert("Hubo un error al decodificar el mensaje.");
   }
+}
+
+function verMail(indice) {
+  // Crear una ventana emergente con el contenido decodificado
+  const popup = window.open(
+    "",
+    "Mensaje Decodificado",
+    "width=600, height=400"
+  );
+  popup.document.write(
+    "<html><head><title>Mensaje Decodificado</title></head><body>"
+  );
+  popup.document.write("<h2>Mensaje Decodificado:</h2>");
+  popup.document.write(
+    "<pre>" + containerMailsDecodificados[indice] + "</pre>"
+  );
+  popup.document.write("</body></html>");
+  popup.document.close();
 }
 
 obtenerMails();
