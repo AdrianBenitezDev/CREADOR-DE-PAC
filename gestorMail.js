@@ -44,7 +44,7 @@ function procesarRespuesta(data) {
   const containerMails = document.getElementById("containerMails");
 
   data.forEach((element, index) => {
-    let snippet = element.snippet;
+    let snippet = element.snippet.payload.headers[25].value;
     containerMails.innerHTML += `<div><p>${snippet}</p><button onclick="obtenerCifrado(${index})">Ver</button></div>`;
   });
   //decodificamos respuesta
