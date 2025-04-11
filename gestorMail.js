@@ -1,6 +1,7 @@
 //variable para mostrar la respuesta de los mails
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
+let arrayDatosParaPac = [];
 
 function obtenerTokenYAlmacenar() {
   // Si no existe el token, obtenerlo de la URL (esto debe adaptarse a tu caso)
@@ -59,11 +60,13 @@ function procesarRespuesta(data) {
       index + 1
     }</h3> <input class="casilla" type="checkbox" id="input_${index}" name="index"> <p>${
       subject[0].value
-    }</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
+    }</p><button onclick="verMail(${index})">Ver</button><button onclick="obtenerDatosParaPAC(${index})">Generar Pac</button></div>`;
 
     //procesamos la respuesta, creamos otra variable que contiene los dato decodigicados
     containerMailsDecodificados.push(decodificar(index));
   });
+
+  console.log(containerMailsDecodificados);
   //decodificamos respuesta
 }
 
@@ -129,4 +132,12 @@ function habilitarSpiner() {
 
 function deshabilitarSpiner() {
   document.getElementById("spiner").style.display = "none";
+}
+
+function obtenerDatosParaPAC(index) {}
+
+function sendAllMails() {
+  if (containerMailsDecodificados.length > 0) {
+    containerMailsDecodificados.forEach((element) => {});
+  }
 }
