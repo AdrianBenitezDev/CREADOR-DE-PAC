@@ -18,6 +18,8 @@ function obtenerMails() {
     return;
   }
 
+  habilitarSpiner();
+
   // Realizamos la solicitud a la API de Gmail con el token
   const url = `https://creador-de-pac-backend.onrender.com/obtenerMails`; // Consulta con asunto "designación"
 
@@ -32,9 +34,11 @@ function obtenerMails() {
     .then((data) => {
       console.log("Datos recibidos:", data); // Aquí tendrás los datos del servidor
       procesarRespuesta(data);
+      deshablitarSpiner();
     })
     .catch((error) => {
       console.error("Error al obtener los correos:", error);
+      deshablitarSpiner();
     });
 }
 
@@ -43,11 +47,14 @@ function procesarRespuesta(data) {
   //renderizamos mails
   const containerMails = document.getElementById("containerMails");
 
+  containerMails.innerHTML = "";
+
   data.forEach((element, index) => {
     let subjet = element.payload.headers.filter(
       (array) => array.name == "Subjet"
     );
-    containerMails.innerHTML += `<div><p>${subjet.value}</p><button onclick="obtenerCifrado(${index})">Ver</button></div>`;
+
+    containerMails.innerHTML += `<div><p>${subjet.value}</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
   });
   //decodificamos respuesta
 }
@@ -97,3 +104,11 @@ function verMail(encodedMessage) {
 }
 
 obtenerMails();
+
+function hablitarSpiner() {
+  document.getElementById("spiner").style.display = "flex";
+}
+
+function deshablitarSpiner() {
+  document.getElementById("spiner").style.display = "none";
+}
