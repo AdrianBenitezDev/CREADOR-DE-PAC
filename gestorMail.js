@@ -77,12 +77,12 @@ function decodificar(index) {
 function obtenerCifrado(mails) {
   // Imprimir los objetos en formato JSON
   respuestaObtenida[mails].payload.parts.forEach((miMail) => {
-    let devolver = "";
+    let retornar = "";
     try {
-      devolver += devolver(miMail.body.data);
+      retornar += devolver(miMail.body.data);
     } catch {}
   });
-  return devolver;
+  return retornar;
 }
 
 function devolver(encodedMessage) {
