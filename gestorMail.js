@@ -34,11 +34,11 @@ function obtenerMails() {
     .then((data) => {
       console.log("Datos recibidos:", data); // Aquí tendrás los datos del servidor
       procesarRespuesta(data);
-      deshablitarSpiner();
+      deshabilitarSpiner();
     })
     .catch((error) => {
       console.error("Error al obtener los correos:", error);
-      deshablitarSpiner();
+      deshabilitarSpiner();
     });
 }
 
@@ -105,10 +105,10 @@ function verMail(encodedMessage) {
 
 obtenerMails();
 
-function hablitarSpiner() {
+function habilitarSpiner() {
   document.getElementById("spiner").style.display = "flex";
 }
 
-function deshablitarSpiner() {
+function deshabilitarSpiner() {
   document.getElementById("spiner").style.display = "none";
 }
