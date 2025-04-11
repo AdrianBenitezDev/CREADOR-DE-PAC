@@ -50,11 +50,11 @@ function procesarRespuesta(data) {
   containerMails.innerHTML = "";
 
   data.forEach((element, index) => {
-    let Subject = element.payload.headers.filter(
+    let subject = element.payload.headers.filter(
       (array) => array.name == "Subject"
     );
 
-    containerMails.innerHTML += `<div><p>${Subject.value}</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
+    containerMails.innerHTML += `<div><p>${subject[0].value}</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
   });
   //decodificamos respuesta
 }
