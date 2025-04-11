@@ -17,9 +17,13 @@
 }
 
 .row{
-    display:flex;
-    flex-direction: row;
-    margin: 10px;
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        border: solid 2px black;
+        padding: 5px;
+        border-radius: 10px;
+        justify-content: space-evenly;
 }
 
   .spinner {
