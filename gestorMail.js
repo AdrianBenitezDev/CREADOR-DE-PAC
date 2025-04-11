@@ -54,7 +54,11 @@ function procesarRespuesta(data) {
       (array) => array.name == "Subject"
     );
 
-    containerMails.innerHTML += `<div><p>${subject[0].value}</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
+    containerMails.innerHTML += `<div class="row"> <h3>${
+      index + 1
+    }</h3> <input class="casilla" type="checkbox" id="input${index}" name="index"> <p>${
+      subject[0].value
+    }</p><button onclick="obtenerCifrado(${index})">Ver</button><button onclick="Generar Pac(${index})">Generar Pac</button></div>`;
   });
   //decodificamos respuesta
 }

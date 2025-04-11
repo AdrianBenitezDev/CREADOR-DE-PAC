@@ -12,6 +12,16 @@
     display: none; /* Oculto por defecto */
   }
   
+.casilla{
+    border: solid 2px blue;
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
   .spinner {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db; /* Color del spinner */
