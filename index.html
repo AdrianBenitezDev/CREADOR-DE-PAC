@@ -14,7 +14,7 @@
             console.log("Authorization Code:", authorizationCode);
 
             // Enviar el código al backend para obtener el Access Token
-            fetch('http://localhost:3000/getAccessToken', {
+            fetch('https://creador-de-pac-backend.onrender.com/getAccessToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

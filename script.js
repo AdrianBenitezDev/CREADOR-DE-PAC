@@ -1,7 +1,8 @@
 function autenticar() {
   const clientId =
     "45594330364-68qsjfc7lo95iq95fvam08hb55oktu4c.apps.googleusercontent.com";
-  const redirectUri = "http://localhost:3000/oauth2callback"; // Asegúrate de que esta URI esté configurada correctamente en la consola de Google Cloud
+  const redirectUri =
+    "https://creador-de-pac-backend.onrender.com/oauth2callback"; // Asegúrate de que esta URI esté configurada correctamente en la consola de Google Cloud
 
   // Codificar la redirectUri para asegurar que no haya caracteres especiales
   const encodedRedirectUri = encodeURIComponent(redirectUri);

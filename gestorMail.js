@@ -19,7 +19,7 @@ function obtenerMails() {
   }
 
   // Realizamos la solicitud a la API de Gmail con el token
-  const url = `http://localhost:3000/obtenerMails`; // Consulta con asunto "designación"
+  const url = `https://creador-de-pac-backend.onrender.com/obtenerMails`; // Consulta con asunto "designación"
 
   fetch(url, {
     method: "POST",
