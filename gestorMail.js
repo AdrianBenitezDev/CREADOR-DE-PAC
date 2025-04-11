@@ -124,8 +124,6 @@ function verMail(indice) {
   popup.document.close();
 }
 
-obtenerMails();
-
 function habilitarSpiner() {
   document.getElementById("spiner").style.display = "flex";
 }
@@ -141,3 +139,5 @@ function sendAllMails() {
     containerMailsDecodificados.forEach((element) => {});
   }
 }
+
+//obtenerMails();
