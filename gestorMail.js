@@ -164,23 +164,32 @@ function sendAllMails() {
 //obtenerMails();
 function dowload() {
   habilitarSpiner();
-
-  const url = `https://creador-de-pac-backend.onrender.com/descargar`; // Consulta con asunto "designación"
+  const url = `https://creador-de-pac-backend.onrender.com/descargar`;
 
   fetch(url, {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    method: "GET",
   })
-    .then((response) => response.json()) // Convierte la respuesta a JSON
-    .then(() => {
-      alert("Obteniedo arnchivo"); // Aquí tendrás los datos del servidor
-
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al descargar el archivo");
+      }
+      return response.blob(); // Convertimos a blob porque es un archivo binario
+    })
+    .then((blob) => {
+      // Crear un link temporal para descargar el archivo
+      const urlBlob = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = urlBlob;
+      link.download = "plantilla-modificada.xlsx";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(urlBlob);
       deshabilitarSpiner();
     })
     .catch((error) => {
-      console.error("Error al obtener los correos:", error);
+      console.error("Hubo un problema con la descarga:", error);
       deshabilitarSpiner();
+      alert("Hubo un error al descargar el archivo");
     });
 }
