@@ -168,7 +168,7 @@ function dowload() {
   const url = `https://creador-de-pac-backend.onrender.com/descargar`; // Consulta con asunto "designación"
 
   fetch(url, {
-    method: "POST",
+    method: "get",
     headers: {
       "Content-Type": "application/json",
     },
