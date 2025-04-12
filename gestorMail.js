@@ -207,6 +207,19 @@ function verPac() {
     .then((html) => {
       // Insertamos el HTML recibido dentro de algún contenedor de tu página
       document.getElementById("vista-previa").innerHTML = html;
+
+      const popup = window.open(
+        "",
+        "Planilla Adicional Contralor",
+        "width=600, height=400"
+      );
+      popup.document.write(
+        "<html><head><title>Planilla Adicional Contralor</title></head><body>"
+      );
+      //aderimos html
+      popup.document.write("<pre>" + html + "</pre>");
+      popup.document.write("</body></html>");
+      popup.document.close();
     })
     .catch((error) => {
       console.error("Error mostrando la vista previa:", error);
