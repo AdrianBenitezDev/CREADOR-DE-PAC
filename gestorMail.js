@@ -78,7 +78,8 @@ function obtenerCifrado(mails) {
     try {
       if (miMail.parts) {
         console.log("--parts: ");
-        respuestaObtenida[mails].payload.parts.parts.forEach((miMailParts) => {
+        console.log(miMail);
+        miMail.parts.forEach((miMailParts) => {
           console.log(miMailParts);
           let rr = devolver(
             miMailParts.body.data !== null || undefined
