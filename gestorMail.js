@@ -76,7 +76,7 @@ function obtenerCifrado(mails) {
 
   respuestaObtenida[mails].payload.parts.forEach((miMail) => {
     try {
-      if (respuestaObtenida[mails].payload.parts.parts) {
+      if (miMail.parts) {
         console.log("--parts: ");
         respuestaObtenida[mails].payload.parts.parts.forEach((miMailParts) => {
           console.log(miMailParts);
@@ -89,6 +89,7 @@ function obtenerCifrado(mails) {
           retornar += rr;
         });
       } else {
+        console.log("no entro en partes");
         let rr = devolver(
           miMail.body.data !== null || undefined
             ? miMail.body.data
