@@ -73,15 +73,28 @@ function procesarRespuesta(data) {
 function obtenerCifrado(mails) {
   let retornar = "";
   // Imprimir los objetos en formato JSON
+
   respuestaObtenida[mails].payload.parts.forEach((miMail) => {
     try {
-      let rr = devolver(
-        miMail.body.data !== null || undefined
-          ? miMail.body.data
-          : Object.keys(miMail.body)[0]
-      );
-      // console.log("--", rr);
-      retornar += rr;
+      if (respuestaObtenida[mails].payload.parts.parts) {
+        respuestaObtenida[mails].payload.parts.parts.forEach((miMailParts) => {
+          let rr = devolver(
+            miMailParts.body.data !== null || undefined
+              ? miMailParts.body.data
+              : Object.keys(miMailParts.body)[0]
+          );
+          // console.log("--", rr);
+          retornar += rr;
+        });
+      } else {
+        let rr = devolver(
+          miMail.body.data !== null || undefined
+            ? miMail.body.data
+            : Object.keys(miMail.body)[0]
+        );
+        // console.log("--", rr);
+        retornar += rr;
+      }
     } catch {}
   });
   return retornar;
