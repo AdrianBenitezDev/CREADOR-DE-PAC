@@ -151,7 +151,9 @@ function deshabilitarSpiner() {
   document.getElementById("spiner").style.display = "none";
 }
 
-function obtenerDatosParaPAC(index) {}
+function obtenerDatosParaPAC(index) {
+  containerMailsDecodificados[index];
+}
 
 function sendAllMails() {
   if (containerMailsDecodificados.length > 0) {
@@ -160,3 +162,26 @@ function sendAllMails() {
 }
 
 //obtenerMails();
+function dowload() {
+  habilitarSpiner();
+
+  const url = `https://creador-de-pac-backend.onrender.com/descargar`; // Consulta con asunto "designación"
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: "",
+  })
+    .then((response) => response.json()) // Convierte la respuesta a JSON
+    .then(() => {
+      alert("Obteniedo archivo"); // Aquí tendrás los datos del servidor
+
+      deshabilitarSpiner();
+    })
+    .catch((error) => {
+      console.error("Error al obtener los correos:", error);
+      deshabilitarSpiner();
+    });
+}
