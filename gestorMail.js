@@ -63,7 +63,7 @@ function procesarRespuesta(data) {
     }</p><button onclick="verMail(${index})">Ver</button><button onclick="obtenerDatosParaPAC(${index})">Generar Pac</button></div>`;
 
     //procesamos la respuesta, creamos otra variable que contiene los dato decodigicados
-    containerMailsDecodificados.push(obtenerCifrado(index));
+    //containerMailsDecodificados.push(obtenerCifrado(index));
   });
 
   console.log(containerMailsDecodificados);
