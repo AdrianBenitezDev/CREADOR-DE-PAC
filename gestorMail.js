@@ -172,11 +172,10 @@ function dowload() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: "",
   })
     .then((response) => response.json()) // Convierte la respuesta a JSON
     .then(() => {
-      alert("Obteniedo archivo"); // Aquí tendrás los datos del servidor
+      alert("Obteniedo arnchivo"); // Aquí tendrás los datos del servidor
 
       deshabilitarSpiner();
     })
