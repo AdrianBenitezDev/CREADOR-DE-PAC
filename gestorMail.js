@@ -156,8 +156,43 @@ function obtenerDatosParaPAC(index) {
 }
 
 function sendAllMails() {
+  //creamos un objeto que contiene todos los datos para el pac
+
   if (containerMailsDecodificados.length > 0) {
-    containerMailsDecodificados.forEach((element) => {});
+    containerMailsDecodificados.forEach((element, index) => {
+      let jsonPac = {
+        cupof: "",
+        dni: "",
+        name: "",
+        revista: "",
+        pid: "",
+        mod: "",
+        year: "",
+        seccion: "",
+        turno: "",
+        desde: "",
+        hasta: "",
+      };
+
+      jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
+      let dni = extraerDeMensaje(element, "CUIL:");
+      jsonPac.dni = dni.slice(2, -1);
+      jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
+      jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
+      jsonPac.pid = extraerDeMensaje(element, "PID:");
+      jsonPac.mod = extraerDeMensaje(element, "Módulos:");
+      let cursoSeccion = extraerDeMensaje(element, "Curso y Sección:");
+      jsonPac.year = cursoSeccion[0];
+      jsonPac.seccion =
+        cursoSeccion.length == 3 ? cursoSeccion[2] : cursoSeccion[1];
+      jsonPac.turno = extraerDeMensaje(element, "Turno:");
+      jsonPac.desde = extraerDeMensaje(element, "Desde:");
+      jsonPac.hasta = extraerDeMensaje(element, "Hasta:");
+
+      arrayDatosParaPac.push(jsonPac);
+    });
+    console.log(arrayDatosParaPac);
+    console.log("Listo para enviar al backend");
   }
 }
 
@@ -225,6 +260,18 @@ function verPac() {
       console.error("Error mostrando la vista previa:", error);
       alert("No se pudo mostrar la vista previa");
     });
+}
+
+function extraerDeMensaje(mensaje, despuesDe) {
+  const index = mensaje.indexOf(despuesDe);
+  if (index === -1) return null;
+
+  const inicio = index + despuesDe.length;
+  const resto = mensaje.slice(inicio);
+  const finDeLinea = resto.indexOf("\n");
+
+  if (finDeLinea === -1) return resto.trim(); // Si no hay salto, devuelve todo
+  return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
 }
 
 console.log("coent");
