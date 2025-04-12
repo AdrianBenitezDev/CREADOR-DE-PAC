@@ -193,3 +193,5 @@ function dowload() {
       alert("Hubo un error al descargar el archivo");
     });
 }
+
+console.log("blob");
