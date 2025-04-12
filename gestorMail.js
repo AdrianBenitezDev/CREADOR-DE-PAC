@@ -206,7 +206,7 @@ function verPac() {
     })
     .then((html) => {
       // Insertamos el HTML recibido dentro de algún contenedor de tu página
-      document.getElementById("vista-previa").innerHTML = html;
+      //document.getElementById("vista-previa").innerHTML = html;
 
       const popup = window.open(
         "",
