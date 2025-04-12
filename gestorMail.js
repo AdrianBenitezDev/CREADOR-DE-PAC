@@ -194,4 +194,24 @@ function dowload() {
     });
 }
 
-console.log("blob");
+function verPac() {
+  const url = "https://creador-de-pac-backend.onrender.com/ver";
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al cargar vista previa");
+      }
+      return response.text(); // Es HTML, no JSON
+    })
+    .then((html) => {
+      // Insertamos el HTML recibido dentro de algún contenedor de tu página
+      document.getElementById("vista-previa").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error mostrando la vista previa:", error);
+      alert("No se pudo mostrar la vista previa");
+    });
+}
+
+console.log("ver PAC");
