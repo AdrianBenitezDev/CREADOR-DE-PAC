@@ -281,4 +281,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 6");
+console.log("coent 7");
