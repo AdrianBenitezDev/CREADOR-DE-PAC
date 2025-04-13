@@ -204,7 +204,10 @@ function dowload() {
 
   fetch(url, {
     method: "POST",
-    body: { objeto: arrayDatosParaPac },
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ objeto: arrayDatosParaPac }),
   })
     .then((response) => {
       if (!response.ok) {
