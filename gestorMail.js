@@ -121,7 +121,7 @@ function devolver(encodedMessage) {
     return decodeURIComponent(escape(decodedMessage));
   } catch (e) {
     console.error("Error al decodificar el mensaje: ", e);
-    alert("Hubo un error al decodificar el mensaje.");
+    //alert("Hubo un error al decodificar el mensaje.");
   }
 }
 
@@ -281,4 +281,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 5");
+console.log("coent 6");
