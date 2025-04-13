@@ -264,16 +264,20 @@ function verPac() {
 }
 
 function extraerDeMensaje(mensaje, despuesDe) {
-  console.log(despuesDe);
-  const index = mensaje.indexOf(despuesDe);
-  if (index === -1) return null;
+  try {
+    console.log(despuesDe);
+    const index = mensaje.indexOf(despuesDe);
+    if (index === -1) return null;
 
-  const inicio = index + despuesDe.length;
-  const resto = mensaje.slice(inicio);
-  const finDeLinea = resto.indexOf("\n");
+    const inicio = index + despuesDe.length;
+    const resto = mensaje.slice(inicio);
+    const finDeLinea = resto.indexOf("\n");
 
-  if (finDeLinea === -1) return resto.trim(); // Si no hay salto, devuelve todo
-  return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
+    if (finDeLinea === -1) return resto.trim(); // Si no hay salto, devuelve todo
+    return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
+  } catch (error) {
+    console.log("Error al extraer: ", despuesDe);
+  }
 }
 
 console.log("coent ff");
