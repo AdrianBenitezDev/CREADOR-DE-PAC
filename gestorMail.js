@@ -237,7 +237,13 @@ function dowload() {
 function verPac() {
   const url = "https://creador-de-pac-backend.onrender.com/ver";
 
-  fetch(url)
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ objeto: arrayDatosParaPac }),
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar vista previa");
@@ -284,4 +290,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 8");
+console.log("coent 9");
