@@ -264,6 +264,7 @@ function verPac() {
 }
 
 function extraerDeMensaje(mensaje, despuesDe) {
+  console.log(despuesDe);
   const index = mensaje.indexOf(despuesDe);
   if (index === -1) return null;
 
@@ -275,4 +276,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
 }
 
-console.log("coent 3");
+console.log("coent ff");
