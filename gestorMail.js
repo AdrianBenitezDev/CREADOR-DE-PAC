@@ -233,7 +233,6 @@ function dowload() {
       alert("Hubo un error al descargar el archivo");
     });
 }
-
 function verPac() {
   const url = "https://creador-de-pac-backend.onrender.com/ver";
 
@@ -248,23 +247,16 @@ function verPac() {
       if (!response.ok) {
         throw new Error("Error al cargar vista previa");
       }
-      return response.text(); // Es HTML, no JSON
+      return response.text(); // HTML desde el backend
     })
     .then((html) => {
-      // Insertamos el HTML recibido dentro de algún contenedor de tu página
-      //document.getElementById("vista-previa").innerHTML = html;
-
       const popup = window.open(
         "",
         "Planilla Adicional Contralor",
-        "width=600, height=400"
+        "width=900,height=700"
       );
-      popup.document.write(
-        "<html><head><title>Planilla Adicional Contralor</title></head><body>"
-      );
-      //aderimos html
-      popup.document.write("<pre>" + html + "</pre>");
-      popup.document.write("</body></html>");
+      popup.document.open(); // importante en algunos navegadores
+      popup.document.write(html); // 💡 insertamos el HTML completo directamente
       popup.document.close();
     })
     .catch((error) => {
@@ -290,4 +282,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 9");
+console.log("coent 10");
