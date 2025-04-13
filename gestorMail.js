@@ -176,7 +176,7 @@ function sendAllMails() {
       };
 
       jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
-      let dni = extraerDeMensaje(element, "CUIL:");
+      let dni = extraerDeMensaje(element, "CUIL/DNI:");
       jsonPac.dni = dni.slice(2, -1);
       jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
       jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
@@ -275,4 +275,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
 }
 
-console.log("coent");
+console.log("coent 3");
