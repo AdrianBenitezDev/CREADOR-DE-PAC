@@ -200,10 +200,11 @@ function sendAllMails() {
 //obtenerMails();
 function dowload() {
   habilitarSpiner();
-  const url = `https://creador-de-pac-backend.onrender.com/descargar`;
+  const url = `https://creador-de-pac-backend.onrender.com/generarPac`;
 
   fetch(url, {
-    method: "GET",
+    method: "POST",
+    body: arrayDatosParaPac,
   })
     .then((response) => {
       if (!response.ok) {
@@ -280,4 +281,4 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent qq");
+console.log("coent 5");
