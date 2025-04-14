@@ -9,9 +9,9 @@ function buscarHeader() {
   }
 }
 
-function editarCabeceraPac() {
-  mostrarFormularioHeader();
-}
+document
+  .getElementById("btnMostrarHeader")
+  .addEventListener("click", mostrarFormularioHeader);
 
 function mostrarFormularioHeader() {
   // Crear fondo oscuro
@@ -39,35 +39,71 @@ function mostrarFormularioHeader() {
   panel.style.width = "90%";
 
   panel.innerHTML = `
-      <h3>Datos de la escuela</h3>
-      <label>Domicilio:<input id="domicilio" /></label><br>
-      <label>Teléfono:<input id="telefono" /></label><br>
-      <label>Email:<input id="email" /></label><br>
-      <label>Categoría:
-        <select id="categoria">
-          <option>1ra</option><option>2da</option><option>3ra</option>
-        </select>
-      </label><br>
-      <label>Turno:
-        <select id="turno">
-          <option>M</option><option>T</option><option>V</option>
-        </select>
-      </label><br>
-      <label>Desfavorabilidad:
-        <select id="desfavorabilidad">
-          <option>1°</option><option>2°</option><option>3°</option><option>4°</option><option>5°</option>
-        </select>
-      </label><br>
-      <label>Distrito:<input id="distrito" /></label><br>
-      <label>Tipo de organización:<input id="tipoOrganizacion" /></label><br><br>
-      <button id="guardarHeader" style="background:green;color:white;padding:6px 12px;border:none;border-radius:5px;">Guardar</button>
-      <button id="cancelarHeader" style="background:red;color:white;padding:6px 12px;border:none;border-radius:5px;margin-left:10px;">Cancelar</button>
-    `;
+  <h2 style="margin-top:0; color:#333;">Datos de Cabecera PAC</h2>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Domicilio de la Escuela:</span>
+      <input id="domicilio" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Teléfono Institucional:</span>
+      <input id="telefono" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Email Institucional:</span>
+      <input id="email" type="email" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Categoría:</span>
+      <select id="categoria" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+        <option>1ra</option><option>2da</option><option>3ra</option>
+      </select>
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Turno:</span>
+      <select id="turno" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+        <option>M</option><option>T</option><option>V</option><option>M,T</option><option>M,T,V</option>
+      </select>
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Desfavorabilidad:</span>
+      <select id="desfavorabilidad" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+        <option>0</option><option>1°</option><option>2°</option><option>3°</option><option>4°</option><option>5°</option>
+      </select>
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Distrito:</span>
+      <input id="distrito" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    </label>
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Tipo de organización:</span>
+      <input id="tipoOrganizacion" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    </label>
+
+  </div>
+
+  <div style="text-align:right; margin-top:20px;">
+    <button id="guardarHeader" style="background:green;color:white;padding:10px 18px;border:none;border-radius:5px;cursor:pointer;">Guardar</button>
+    <button id="cancelarHeader" style="background:#aaa;color:white;padding:10px 18px;border:none;border-radius:5px;margin-left:10px;cursor:pointer;">Cancelar</button>
+    <button id="eliminarHeader" style="background:red;color:white;padding:10px 18px;border:none;border-radius:5px;margin-left:10px;cursor:pointer;">Eliminar</button>
+  </div>
+`;
 
   document.body.appendChild(panel);
 
   try {
-    let datosInicio = localStorage.getItem("headerPac");
+    let datosInicio2 = localStorage.getItem("headerPac");
+
+    let datosInicio = JSON.parse(datosInicio2);
 
     document.getElementById("domicilio").value = datosInicio.domicilio;
     document.getElementById("telefono").value = datosInicio.telefono;
@@ -81,8 +117,37 @@ function mostrarFormularioHeader() {
       datosInicio.tipoOrganizacion;
   } catch {}
 
-  // Eventos
   document.getElementById("guardarHeader").onclick = () => {
+    const campos = [
+      "domicilio",
+      "telefono",
+      "email",
+      "categoria",
+      "turno",
+      "desfavorabilidad",
+      "distrito",
+      "tipoOrganizacion",
+    ];
+
+    let hayErrores = false;
+
+    // Validar campos vacíos
+    campos.forEach((id) => {
+      const input = document.getElementById(id);
+      if (!input.value.trim()) {
+        input.style.border = "2px solid red";
+        hayErrores = true;
+      } else {
+        input.style.border = "1px solid #ccc"; // Restaurar si estaba bien
+      }
+    });
+
+    if (hayErrores) {
+      alert("Por favor, complete todos los campos antes de guardar.");
+      return;
+    }
+
+    // Si está todo bien, guardar
     const datos = {
       domicilio: document.getElementById("domicilio").value,
       telefono: document.getElementById("telefono").value,
@@ -103,7 +168,29 @@ function mostrarFormularioHeader() {
   };
 
   document.getElementById("cancelarHeader").onclick = () => {
-    window.location.href = "https://ejemplo.com"; // Cambiá esto por la URL que quieras
+    if (!window.headerPac) {
+      window.location.href =
+        "https://adrianbenitezdev.github.io/CREADOR-DE-PAC/error.html"; // Cambiá esto por la URL que quieras
+    } else {
+      panel.remove();
+      fondo.remove();
+    }
+  };
+
+  document.getElementById("eliminarHeader").onclick = () => {
+    try {
+      if (window.headerPac) {
+        localStorage.removeItem("headerPac");
+        panel.remove();
+        fondo.remove();
+        alert("Se eliminaron los datos de cabecera");
+      } else {
+        alert("No hay datos para eliminar");
+      }
+    } catch (error) {
+      alert("No se pudo eliminar los datos de cabecera");
+      console.error(error);
+    }
   };
 }
 
