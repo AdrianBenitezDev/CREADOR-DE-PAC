@@ -90,7 +90,7 @@ function mostrarFormularioHeader() {
     </label>
 
     <label>
-      <span style="display:block; margin-bottom:4px;">Distrito:</span>
+      <span style="display:block; margin-bottom:4px;">Distrito (numero):</span>
       <input id="numDistrito" type="number" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
     </label>
 
@@ -175,7 +175,7 @@ function mostrarFormularioHeader() {
       categoria: document.getElementById("categoria").value,
       turno: document.getElementById("turno").value,
       desfavorabilidad: document.getElementById("desfavorabilidad").value,
-      distrito: document.getElementById("distrito").value,
+      distrito: document.getElementById("numDistrito").value,
       tipoOrganizacion: document.getElementById("tipoOrganizacion").value,
       escuela: document.getElementById("escuela").value,
     };
