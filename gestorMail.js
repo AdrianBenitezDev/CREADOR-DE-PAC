@@ -156,7 +156,7 @@ function obtenerDatosParaPAC(index) {
 }
 
 function sendAllMails() {
-  console.log("sendAllMails");
+  arrayDatosParaPac = [];
   //creamos un objeto que contiene todos los datos para el pac
 
   if (containerMailsDecodificados.length > 0) {
