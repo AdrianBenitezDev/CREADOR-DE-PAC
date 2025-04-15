@@ -91,7 +91,7 @@ function mostrarFormularioHeader() {
 
     <label>
       <span style="display:block; margin-bottom:4px;">Distrito:</span>
-      <input id="distrito" type="number" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+      <input id="numDistrito" type="number" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
     </label>
 
     <label>
@@ -101,7 +101,7 @@ function mostrarFormularioHeader() {
 
     <label>
     <span style="display:block; margin-bottom:4px;">Escuela:</span>
-    <input id="numEscuela" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    <input id="escuela" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
   </label>
 
   </div>
