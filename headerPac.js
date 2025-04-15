@@ -70,20 +70,28 @@ function mostrarFormularioHeader() {
     <label>
       <span style="display:block; margin-bottom:4px;">Turno:</span>
       <select id="turno" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
-        <option>M</option><option>T</option><option>V</option><option>M,T</option><option>M,T,V</option>
+        <option value="M:x T:_ V:_">M</option><option value="M:_ T:x V:_">T</option><option value="M:_ T:_ V:x">V</option><option value="M:x T:x V:_">M,T</option><option value="M:x T:x V:x">M,T,V</option>
       </select>
     </label>
 
     <label>
       <span style="display:block; margin-bottom:4px;">Desfavorabilidad:</span>
       <select id="desfavorabilidad" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
-        <option>0</option><option>1°</option><option>2°</option><option>3°</option><option>4°</option><option>5°</option>
+        <option>0</option><option value="1°_ 2°_ 3°_ 4°_ 5°_">Sin Desfavorabilidad</option><option value="1°X 2° 3° 4° 5°">1°</option><option value="1° 2°X 3° 4° 5°">2°</option><option value="1° 2° 3°X 4° 5°">3°</option><option value="1° 2° 3° 4°X 5°">4°</option><option value="1° 2° 3° 4° 5°X">5°</option>
+      </select>
+    </label>
+
+
+    <label>
+      <span style="display:block; margin-bottom:4px;">Titulo del Pac:</span>
+      <select id="titlePac" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+        <option>PAC</option><option>PAC Interinos Y Acrecentaiento</option><option>PAC DD y MAD</option><option>PAC Reclamos</option>
       </select>
     </label>
 
     <label>
       <span style="display:block; margin-bottom:4px;">Distrito:</span>
-      <input id="distrito" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+      <input id="distrito" type="number" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
     </label>
 
     <label>
@@ -119,7 +127,8 @@ function mostrarFormularioHeader() {
     document.getElementById("turno").value = datosInicio.turno;
     document.getElementById("desfavorabilidad").value =
       datosInicio.desfavorabilidad;
-    document.getElementById("distrito").value = datosInicio.distrito;
+    document.getElementById("titlePac").value = datosInicio.titlePac;
+    document.getElementById("distrito").value = datosInicio.numDistrito;
     document.getElementById("tipoOrganizacion").value =
       datosInicio.tipoOrganizacion;
     document.getElementById("escuela").value = datosInicio.escuela;
@@ -133,7 +142,8 @@ function mostrarFormularioHeader() {
       "categoria",
       "turno",
       "desfavorabilidad",
-      "distrito",
+      "titlePac",
+      "numDistrito",
       "tipoOrganizacion",
       "escuela",
     ];
