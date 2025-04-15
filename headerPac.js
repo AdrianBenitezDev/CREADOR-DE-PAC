@@ -37,8 +37,8 @@ function mostrarFormularioHeader() {
   panel.style.zIndex = 1000;
   panel.style.maxWidth = "400px";
   panel.style.width = "90%";
-  panel.style.maxHeight = "80vh"; // Altura máxima del panel
-  panel.style.overflowY = "auto"; // Habilita el scroll vertical
+  panel.style.maxHeight = "90vh"; // Altura máxima del panel
+  panel.style.overflow = "auto"; // Habilita el scroll vertical
 
   panel.innerHTML = `
   <h2 style="margin-top:0; color:#333;">Datos de Cabecera PAC</h2>
