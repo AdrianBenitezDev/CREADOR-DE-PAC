@@ -153,6 +153,7 @@ function mostrarFormularioHeader() {
     // Validar campos vacíos
     campos.forEach((id) => {
       const input = document.getElementById(id);
+      console.log(input);
       if (!input.value.trim()) {
         input.style.border = "2px solid red";
         hayErrores = true;
