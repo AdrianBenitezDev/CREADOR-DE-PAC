@@ -77,7 +77,7 @@ function mostrarFormularioHeader() {
     <label>
       <span style="display:block; margin-bottom:4px;">Desfavorabilidad:</span>
       <select id="desfavorabilidad" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
-        <option>0</option><option value="1°_ 2°_ 3°_ 4°_ 5°_">Sin Desfavorabilidad</option><option value="1°X 2° 3° 4° 5°">1°</option><option value="1° 2°X 3° 4° 5°">2°</option><option value="1° 2° 3°X 4° 5°">3°</option><option value="1° 2° 3° 4°X 5°">4°</option><option value="1° 2° 3° 4° 5°X">5°</option>
+        <option value="1°_ 2°_ 3°_ 4°_ 5°_">Sin Desfavorabilidad</option><option value="1°X 2° 3° 4° 5°">1°</option><option value="1° 2°X 3° 4° 5°">2°</option><option value="1° 2° 3°X 4° 5°">3°</option><option value="1° 2° 3° 4°X 5°">4°</option><option value="1° 2° 3° 4° 5°X">5°</option>
       </select>
     </label>
 
@@ -101,7 +101,7 @@ function mostrarFormularioHeader() {
 
     <label>
     <span style="display:block; margin-bottom:4px;">Escuela:</span>
-    <input id="escuela" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+    <input id="numEscuela" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
   </label>
 
   </div>
@@ -128,7 +128,7 @@ function mostrarFormularioHeader() {
     document.getElementById("desfavorabilidad").value =
       datosInicio.desfavorabilidad;
     document.getElementById("titlePac").value = datosInicio.titlePac;
-    document.getElementById("distrito").value = datosInicio.numDistrito;
+    document.getElementById("numDistrito").value = datosInicio.numDistrito;
     document.getElementById("tipoOrganizacion").value =
       datosInicio.tipoOrganizacion;
     document.getElementById("escuela").value = datosInicio.escuela;
