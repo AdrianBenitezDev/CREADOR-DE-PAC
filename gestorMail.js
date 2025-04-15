@@ -193,11 +193,70 @@ function sendAllMails() {
       arrayDatosParaPac.push(jsonPac);
     });
     console.log(arrayDatosParaPac);
+
+    mostrarPopupOpciones();
+
     console.log("Listo para enviar al backend");
   }
 }
 
-//obtenerMails();
+function mostrarPopupOpciones() {
+  // Fondo oscuro
+  const fondo = document.createElement("div");
+  fondo.style.position = "fixed";
+  fondo.style.top = "0";
+  fondo.style.left = "0";
+  fondo.style.width = "100vw";
+  fondo.style.height = "100vh";
+  fondo.style.backgroundColor = "rgba(0,0,0,0.5)";
+  fondo.style.zIndex = 999;
+  document.body.appendChild(fondo);
+
+  // Ventana emergente
+  const popup = document.createElement("div");
+  popup.style.position = "fixed";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.background = "#fff";
+  popup.style.padding = "20px";
+  popup.style.borderRadius = "10px";
+  popup.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+  popup.style.zIndex = 1000;
+  popup.style.textAlign = "center";
+  popup.style.minWidth = "280px";
+
+  popup.innerHTML = `
+    <h3>¿Qué desea hacer?</h3>
+    <button id="btnDescargar" style="margin: 10px; padding: 8px 16px;">Descargar</button>
+    <button id="btnVer" style="margin: 10px; padding: 8px 16px;">Ver</button>
+    <button id="btnVolver" style="margin: 10px; padding: 8px 16px;">Volver</button>
+    
+  `;
+
+  document.body.appendChild(popup);
+
+  // Eventos
+  document.getElementById("btnDescargar").onclick = () => {
+    dowload();
+    cerrarPopup();
+  };
+
+  document.getElementById("btnVer").onclick = () => {
+    verPac();
+    cerrarPopup();
+  };
+
+  document.getElementById("btnVolver").onclick = () => {
+    cerrarPopup();
+  };
+
+  function cerrarPopup() {
+    popup.remove();
+    fondo.remove();
+  }
+}
+
 function dowload() {
   habilitarSpiner();
   const url = `https://creador-de-pac-backend.onrender.com/generarPac`;
@@ -283,3 +342,10 @@ function extraerDeMensaje(mensaje, despuesDe) {
 }
 
 console.log("coent 10");
+
+//iniciar();
+function inciar() {
+  document.getElementById("estado").document.innerHTML = `
+
+`;
+}

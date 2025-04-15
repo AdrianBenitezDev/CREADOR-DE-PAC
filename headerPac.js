@@ -89,6 +89,11 @@ function mostrarFormularioHeader() {
       <input id="tipoOrganizacion" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
     </label>
 
+    <label>
+    <span style="display:block; margin-bottom:4px;">Escuela:</span>
+    <input id="escuela" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;" />
+  </label>
+
   </div>
 
   <div style="text-align:right; margin-top:20px;">
@@ -115,6 +120,7 @@ function mostrarFormularioHeader() {
     document.getElementById("distrito").value = datosInicio.distrito;
     document.getElementById("tipoOrganizacion").value =
       datosInicio.tipoOrganizacion;
+    document.getElementById("escuela").value = datosInicio.escuela;
   } catch {}
 
   document.getElementById("guardarHeader").onclick = () => {
@@ -127,6 +133,7 @@ function mostrarFormularioHeader() {
       "desfavorabilidad",
       "distrito",
       "tipoOrganizacion",
+      "escuela",
     ];
 
     let hayErrores = false;
@@ -157,6 +164,7 @@ function mostrarFormularioHeader() {
       desfavorabilidad: document.getElementById("desfavorabilidad").value,
       distrito: document.getElementById("distrito").value,
       tipoOrganizacion: document.getElementById("tipoOrganizacion").value,
+      escuela: document.getElementById("escuela").value,
     };
 
     localStorage.setItem("headerPac", JSON.stringify(datos));
