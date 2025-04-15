@@ -258,6 +258,7 @@ function mostrarPopupOpciones() {
 }
 
 function dowload() {
+  let headerPacEnviar = localStorage.getItem("headerPac");
   habilitarSpiner();
   const url = `https://creador-de-pac-backend.onrender.com/generarPac`;
 
@@ -266,7 +267,10 @@ function dowload() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ objeto: arrayDatosParaPac }),
+    body: JSON.stringify({
+      objeto: arrayDatosParaPac,
+      headerPac: headerPacEnviar,
+    }),
   })
     .then((response) => {
       if (!response.ok) {
