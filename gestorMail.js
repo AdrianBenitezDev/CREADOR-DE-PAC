@@ -299,12 +299,17 @@ function dowload() {
 function verPac() {
   const url = "https://creador-de-pac-backend.onrender.com/ver";
 
+  let headerPacEnviar = localStorage.getItem("headerPac");
+
   fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ objeto: arrayDatosParaPac }),
+    body: JSON.stringify({
+      objeto: arrayDatosParaPac,
+      headerPac: headerPacEnviar,
+    }),
   })
     .then((response) => {
       if (!response.ok) {
