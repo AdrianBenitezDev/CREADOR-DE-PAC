@@ -1,7 +1,7 @@
 //variable para mostrar la respuesta de los mails
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
-let arrayDatosParaPac = [];
+//let arrayDatosParaPac = [];
 
 function obtenerTokenYAlmacenar() {
   // Si no existe el token, obtenerlo de la URL (esto debe adaptarse a tu caso)
@@ -156,7 +156,7 @@ function obtenerDatosParaPAC(index) {
 }
 
 function sendAllMails() {
-  arrayDatosParaPac = [];
+  let arrayDatosParaPac = [];
   //creamos un objeto que contiene todos los datos para el pac
 
   if (containerMailsDecodificados.length > 0) {
@@ -194,13 +194,13 @@ function sendAllMails() {
     });
     console.log(arrayDatosParaPac);
 
-    mostrarPopupOpciones();
+    mostrarPopupOpciones(arrayDatosParaPac);
 
     console.log("Listo para enviar al backend");
   }
 }
 
-function mostrarPopupOpciones() {
+function mostrarPopupOpciones(arrayDatosParaPac) {
   // Fondo oscuro
   const fondo = document.createElement("div");
   fondo.style.position = "fixed";
@@ -238,12 +238,12 @@ function mostrarPopupOpciones() {
 
   // Eventos
   document.getElementById("btnDescargar").onclick = () => {
-    dowload();
+    dowload(arrayDatosParaPac);
     cerrarPopup();
   };
 
   document.getElementById("btnVer").onclick = () => {
-    verPac();
+    verPac(arrayDatosParaPac);
     cerrarPopup();
   };
 
@@ -257,7 +257,7 @@ function mostrarPopupOpciones() {
   }
 }
 
-function dowload() {
+function dowload(arrayDatosParaPac) {
   let headerPacEnviar = localStorage.getItem("headerPac");
   habilitarSpiner();
   const url = `https://creador-de-pac-backend.onrender.com/generarPac`;
@@ -296,7 +296,7 @@ function dowload() {
       alert("Hubo un error al descargar el archivo");
     });
 }
-function verPac() {
+function verPac(arrayDatosParaPac) {
   const url = "https://creador-de-pac-backend.onrender.com/ver";
 
   let headerPacEnviar = localStorage.getItem("headerPac");
