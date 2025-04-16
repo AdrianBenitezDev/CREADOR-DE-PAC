@@ -175,7 +175,8 @@ function mostrarFormularioHeader() {
       categoria: document.getElementById("categoria").value,
       turno: document.getElementById("turno").value,
       desfavorabilidad: document.getElementById("desfavorabilidad").value,
-      distrito: document.getElementById("numDistrito").value,
+      titlePac: document.getElementById("titlePac").value,
+      numDistrito: document.getElementById("numDistrito").value,
       tipoOrganizacion: document.getElementById("tipoOrganizacion").value,
       escuela: document.getElementById("escuela").value,
     };
