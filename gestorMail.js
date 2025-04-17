@@ -96,6 +96,7 @@ function obtenerMailsPersonalizado(maxFila) {
 
 function procesarRespuesta(data) {
   respuestaObtenida = [];
+  containerMailsDecodificados = [];
   respuestaObtenida = data;
   //renderizamos mails
   const containerMails = document.getElementById("containerMails");
