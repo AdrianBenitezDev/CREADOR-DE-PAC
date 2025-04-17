@@ -11,21 +11,37 @@
     <div id="spiner" class="spinner-overlay">
         <div class="spinner"></div>
       </div>
-      
-    <h3>Bienvenido a Gmail to PAC</h3>
+      <div class="title">
+        <h3>Bienvenido a creador de PAC</h3>
+      </div>
 
+   <div class="row borde  center">
     <a href="https://adrianbenitezdev.github.io/CREADOR-DE-PAC/">
         <button> ir a Inicio</button></a>
-
-    <button onclick="obtenerMails()">Obtener Mails</button>
-
-    <button onclick="sendAllMails()">Crear Pac</button>
-
+    <!--<button onclick="obtenerMails()">Obtener Mails</button>-->
    <!-- <button onclick="sendCustomMails()">Enviar los seleccionados</button> -->
-
-    
-
     <button id="btnMostrarHeader"">Editar Cabecera del PAC</button>
+
+    <button onclick="sendAllMails()">Generar Pac</button>
+   </div>
+
+   <div class="row borde center">
+    <h3>Obtener los ultimos </h3>
+    <button onclick="obtenerMails(10)">10</button>
+    <button onclick="obtenerMails(20)">20</button>
+    <button onclick="obtenerMails(30)">30</button>
+  </div> 
+
+
+   <div class="row borde  center">
+    <div class="row">
+        <input type="text" id="inputBuscar" placeholder="Buscar por DNI, CUIL, APELLIDO, CUPOF">
+        <button>Pegar</button>
+        <button>Borrar</button>
+    </div>
+    <button onclick="obtenerMailsPersonalizado()">Buscar</button>
+  </div> 
+
 
     <div id="estado">
 

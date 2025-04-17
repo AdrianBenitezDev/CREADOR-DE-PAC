@@ -218,3 +218,10 @@ function mostrarFormularioHeader() {
 
 // Llamar a la función principal
 buscarHeader();
+
+function iniciarApp() {
+  //conectando con elservidor
+  //obteniendo datos para el pac
+  //Generando Pac
+  //mostramos los pacs
+}

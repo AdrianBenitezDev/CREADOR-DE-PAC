@@ -11,7 +11,7 @@ function obtenerTokenYAlmacenar() {
   return token;
 }
 
-function obtenerMails() {
+function obtenerMails(maxFila) {
   const token = obtenerTokenYAlmacenar();
   console.log(token);
 
@@ -30,7 +30,57 @@ function obtenerMails() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ token: token }), // Enviar el código de autorización al backend
+    body: JSON.stringify({
+      token: token,
+      maxFila: maxFila,
+    }), // Enviar el código de autorización al backend
+  })
+    .then((response) => response.json()) // Convierte la respuesta a JSON
+    .then((data) => {
+      console.log("Datos recibidos:", data); // Aquí tendrás los datos del servidor
+      procesarRespuesta(data);
+      deshabilitarSpiner();
+    })
+    .catch((error) => {
+      console.error("Error al obtener los correos:", error);
+      deshabilitarSpiner();
+    });
+}
+
+function obtenerMailsPersonalizado(maxFila) {
+  const datosInput = document.getElementById("inputBuscar").value;
+  const token = obtenerTokenYAlmacenar();
+  const datosConsulta = "";
+
+  console.log(token);
+
+  if (!token) {
+    console.log("No se pudo obtener un token.");
+    return;
+  }
+
+  if (datosInput && /^[a-zA-Z0-9\s]+$/.test(datosInput)) {
+    datosConsulta = datosInput;
+  } else {
+    alert("Los parametros de busqueda no deben contener caracteres especiales");
+    return;
+  }
+
+  habilitarSpiner();
+
+  // Realizamos la solicitud a la API de Gmail con el token
+  const url = `https://creador-de-pac-backend.onrender.com/obtenerMailsPersonalizado`; // Consulta con asunto "designación"
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      token: token,
+      maxFila: maxFila,
+      datosConsulta: datosConsulta,
+    }), // Enviar el código de autorización al backend
   })
     .then((response) => response.json()) // Convierte la respuesta a JSON
     .then((data) => {
@@ -45,6 +95,7 @@ function obtenerMails() {
 }
 
 function procesarRespuesta(data) {
+  respuestaObtenida = [];
   respuestaObtenida = data;
   //renderizamos mails
   const containerMails = document.getElementById("containerMails");
@@ -350,7 +401,7 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 10");
+console.log("coent 1");
 
 //iniciar();
 function inciar() {
