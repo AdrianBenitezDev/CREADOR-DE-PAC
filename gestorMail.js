@@ -50,7 +50,7 @@ function obtenerMails(maxFila) {
 function obtenerMailsPersonalizado(maxFila) {
   const datosInput = document.getElementById("inputBuscar").value;
   const token = obtenerTokenYAlmacenar();
-  const datosConsulta = "";
+  let datosConsulta = "";
 
   console.log(token);
 
