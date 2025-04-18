@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <h1>CREADOR DE PAC PARA SECRETARIOS</h1>
+    <h1> <button id="btnMostrarHeader"">Editar Cabecera del PAC</button> CREADOR DE PAC PARA SECRETARIOS</h1>
 
     <!-- Botón de inicio de sesión de Google -->
     
@@ -21,11 +21,7 @@
             <div class="spinner"></div>
           </div>
     
-       <div class="row borde  center">
-        <button id="btnMostrarHeader"">Editar Cabecera del PAC</button>
-    
-        <button onclick="sendAllMails()">Generar Pac</button>
-       </div>
+     
     
        <div class="row borde center">
         
@@ -53,6 +49,11 @@
         </div>
     
         <div id="containerMails"></div>
+
+        <div class="row borde footer  center">
+        
+            <button onclick="sendAllMails()">Generar Pac</button>
+           </div>
     
         <script src="userInterface.js"></script>
     

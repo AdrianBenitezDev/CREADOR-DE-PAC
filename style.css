@@ -20,6 +20,13 @@ h3, h1{
   text-align: center;
 }
 
+.footer{
+  position: absolute;
+  bottom: 10px;
+  z-index: 200;
+  
+}
+
 .row{
         display: flex;
         flex-direction: row;
