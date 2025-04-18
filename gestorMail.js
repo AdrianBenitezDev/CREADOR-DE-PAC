@@ -3,23 +3,7 @@ let respuestaObtenida = [];
 let containerMailsDecodificados = [];
 //let arrayDatosParaPac = [];
 
-function obtenerTokenYAlmacenar() {
-  // Si no existe el token, obtenerlo de la URL (esto debe adaptarse a tu caso)
-  const urlParams = new URLSearchParams(window.location.search);
-  token = urlParams.get("tok");
-
-  return token;
-}
-
 function obtenerMails(maxFila) {
-  const token = obtenerTokenYAlmacenar();
-  console.log(token);
-
-  if (!token) {
-    console.log("No se pudo obtener un token.");
-    return;
-  }
-
   habilitarSpiner();
 
   // Realizamos la solicitud a la API de Gmail con el token
@@ -31,7 +15,6 @@ function obtenerMails(maxFila) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      token: token,
       maxFila: maxFila,
     }), // Enviar el código de autorización al backend
   })
@@ -49,15 +32,8 @@ function obtenerMails(maxFila) {
 
 function obtenerMailsPersonalizado(maxFila) {
   const datosInput = document.getElementById("inputBuscar").value;
-  const token = obtenerTokenYAlmacenar();
+
   let datosConsulta = "";
-
-  console.log(token);
-
-  if (!token) {
-    console.log("No se pudo obtener un token.");
-    return;
-  }
 
   if (datosInput && /^[a-zA-Z0-9\s]+$/.test(datosInput)) {
     datosConsulta = datosInput;
@@ -77,7 +53,6 @@ function obtenerMailsPersonalizado(maxFila) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      token: token,
       maxFila: maxFila,
       datosConsulta: datosConsulta,
     }), // Enviar el código de autorización al backend
