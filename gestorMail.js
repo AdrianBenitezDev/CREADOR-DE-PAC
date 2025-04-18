@@ -379,11 +379,11 @@ function extraerDeMensaje(mensaje, despuesDe) {
   }
 }
 
-console.log("coent 1");
+console.log("versión 37");
 
-//iniciar();
-function inciar() {
-  document.getElementById("estado").document.innerHTML = `
+function reiniciar() {
+  document.getElementById("containerMails").innerHTML = "";
 
-`;
+  containerMailsDecodificados = [];
+  respuestaObtenida = [];
 }
