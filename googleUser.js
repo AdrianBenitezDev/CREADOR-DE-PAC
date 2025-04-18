@@ -42,7 +42,7 @@ function obtenerIdUsuario() {
         <div style="font-size: 1.2rem; font-weight: bold;">${name}</div>
       </div>
     `;
-    document.getElementById("containerApp").style.display = "flex";
+    setearContainerApp("flex");
   } else {
     document.getElementById("profile-info").innerHTML = `
       <div id="google-signin-btn" style="text-align: center; padding: 20px;">
@@ -53,7 +53,7 @@ function obtenerIdUsuario() {
         <button onclick="iniciarLogin()" style="padding: 10px 20px; font-size: 1rem;">Acceder</button>
       </div>
     `;
-    document.getElementById("containerApp").style.display = "hiden";
+    setearContainerApp("none");
   }
 }
 
@@ -61,7 +61,7 @@ function salir() {
   let respuesta = confirm("Deseas Eliminar todos los datos de la Sesion?");
   if (respuesta) {
     localStorage.removeItem("user");
-    document.getElementById("containerApp").style.display = "hiden";
+
     obtenerIdUsuario();
     alert("los datos de sesion fueron borrados correctamente");
   } else {
@@ -69,3 +69,11 @@ function salir() {
 }
 
 obtenerIdUsuario();
+
+function setearContainerApp(valor) {
+  let arrayContainer = document.querySelectorAll("#containerApp");
+
+  arrayContainer.forEach((element) => {
+    element.style.display = valor;
+  });
+}
