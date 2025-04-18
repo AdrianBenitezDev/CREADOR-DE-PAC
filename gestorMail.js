@@ -386,4 +386,5 @@ function reiniciar() {
 
   containerMailsDecodificados = [];
   respuestaObtenida = [];
+  arrayDatosParaPac = [];
 }
