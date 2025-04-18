@@ -83,7 +83,7 @@ function setearContainerApp(valor) {
 function pruebaSub() {
   const url = `https://creador-de-pac-backend.onrender.com/traerDatosUsuario`; // Consulta con asunto "designación"
 
-  let user = localStorage.getItem("user");
+  let user = JSON.parse(localStorage.getItem("user"));
 
   fetch(url, {
     method: "POST",
