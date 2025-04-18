@@ -16,3 +16,10 @@ function pegar() {
       console.error("Error al pegar desde el portapapeles:", err);
     });
 }
+
+function reiniciar() {
+  document.getElementById("containerMails").innerHTML = "";
+
+  window.containerMailsDecodificados = [];
+  window.respuestaObtenida = [];
+}

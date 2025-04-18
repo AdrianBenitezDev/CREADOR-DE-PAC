@@ -224,6 +224,8 @@ function sendAllMails() {
     mostrarPopupOpciones(arrayDatosParaPac);
 
     console.log("Listo para enviar al backend");
+  } else {
+    alert("Debe traer los datos para comenzar");
   }
 }
 
