@@ -33,6 +33,7 @@ function obtenerIdUsuario() {
 
   if (user_google) {
     let user_google_json = JSON.parse(user_google);
+    console.log(user_google_json);
     const { name, picture } = user_google_json;
 
     document.getElementById("profile-info").innerHTML = `
