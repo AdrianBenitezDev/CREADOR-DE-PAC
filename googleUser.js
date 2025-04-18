@@ -48,7 +48,7 @@ function obtenerIdUsuario() {
   } else {
     document.getElementById("profile-info").innerHTML = `
       <div id="google-signin-btn" style="text-align: center; padding: 20px;">
-      <img src="https://www.svgrepo.com/show/382106/user-circle.svg" 
+      <img src="user.jpg" 
      alt="Usuario no identificado" 
      style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; background-color: #f0f0f0; padding: 10px;">
 
