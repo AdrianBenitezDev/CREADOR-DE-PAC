@@ -37,7 +37,7 @@ function obtenerIdUsuario() {
   if (user_google) {
     let user_google_json = JSON.parse(user_google);
     console.log(user_google_json);
-    const { name, picture } = user_google_json;
+    const { name, picture, email, sub } = user_google_json;
 
     document.getElementById("profile-info").innerHTML = `
       <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
@@ -46,6 +46,9 @@ function obtenerIdUsuario() {
         <div style="font-size: 0.9rem; color:gray;">${email}</div>
       </div>
     `;
+
+    obtenerTokensGlobales(sub);
+
     setearContainerApp("flex");
   } else {
     document.getElementById("profile-info").innerHTML = `
@@ -82,8 +85,8 @@ function setearContainerApp(valor) {
   });
 }
 
-function pruebaSub() {
-  const url = `https://creador-de-pac-backend.onrender.com/traerDatosUsuario`; // Consulta con asunto "designación"
+function obtenerTokensGlobales() {
+  const url = `https://creador-de-pac-backend.onrender.com/obtenerVariablesGlobales`; // Consulta con asunto "designación"
 
   let user = JSON.parse(localStorage.getItem("user"));
 
@@ -98,7 +101,7 @@ function pruebaSub() {
   })
     .then((response) => response.json()) // Convierte la respuesta a JSON
     .then((data) => {
-      console.log("Datos recibidos:", data); // Aquí tendrás los datos del servidor
+      console.log("Variables Globales Desplegadas para:", data.nombre); // Aquí tendrás los datos del servidor
     })
     .catch((error) => {
       console.error("Error al obtener los correos:", error);
