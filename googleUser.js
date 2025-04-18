@@ -48,8 +48,6 @@ function obtenerIdUsuario() {
     `;
 
     obtenerTokensGlobales(sub);
-
-    setearContainerApp("flex");
   } else {
     document.getElementById("profile-info").innerHTML = `
       <div class="column" id="google-signin-btn" style="text-align: center; padding: 20px;">
@@ -102,6 +100,7 @@ function obtenerTokensGlobales(sub) {
     .then((response) => response.json()) // Convierte la respuesta a JSON
     .then((data) => {
       console.log("Variables Globales Desplegadas para:", data.nombre); // Aquí tendrás los datos del servidor
+      setearContainerApp("flex");
     })
     .catch((error) => {
       console.error("Error al obtener los correos:", error);
