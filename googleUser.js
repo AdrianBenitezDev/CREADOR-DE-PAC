@@ -85,10 +85,10 @@ function setearContainerApp(valor) {
   });
 }
 
-function obtenerTokensGlobales() {
+function obtenerTokensGlobales(sub) {
   const url = `https://creador-de-pac-backend.onrender.com/obtenerVariablesGlobales`; // Consulta con asunto "designación"
 
-  let user = JSON.parse(localStorage.getItem("user"));
+  //let user = JSON.parse(localStorage.getItem("user"));
 
   fetch(url, {
     method: "POST",
@@ -96,7 +96,7 @@ function obtenerTokensGlobales() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      user_google_id: user.sub,
+      user_google_id: sub,
     }), // Enviar el código de autorización al backend
   })
     .then((response) => response.json()) // Convierte la respuesta a JSON
