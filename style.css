@@ -20,11 +20,17 @@ h3, h1{
   text-align: center;
 }
 
+.up{
+  top:10px;
+  left:10px;
+}
+
 .footer{
   position: absolute;
   bottom: 10px;
+  right: 10px;
   z-index: 200;
-  
+
 }
 
 .row{
