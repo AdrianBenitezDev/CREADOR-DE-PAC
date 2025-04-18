@@ -79,3 +79,26 @@ function setearContainerApp(valor) {
     element.style.display = valor;
   });
 }
+
+function pruebaSub() {
+  const url = `https://creador-de-pac-backend.onrender.com/traerDatosUsuario`; // Consulta con asunto "designación"
+
+  let user = localStorage.getItem("user");
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_google_id: user.sub,
+    }), // Enviar el código de autorización al backend
+  })
+    .then((response) => response.json()) // Convierte la respuesta a JSON
+    .then((data) => {
+      console.log("Datos recibidos:", data); // Aquí tendrás los datos del servidor
+    })
+    .catch((error) => {
+      console.error("Error al obtener los correos:", error);
+    });
+}
