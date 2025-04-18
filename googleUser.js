@@ -26,6 +26,8 @@ window.addEventListener("message", (event) => {
   // Guardar o usar los datos como desees
   localStorage.setItem("token", token);
   localStorage.setItem("user", JSON.stringify(profile));
+
+  obtenerIdUsuario();
 });
 
 function obtenerIdUsuario() {
