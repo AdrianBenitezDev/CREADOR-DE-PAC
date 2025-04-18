@@ -36,14 +36,14 @@ function obtenerIdUsuario() {
     console.log(user_google_json);
     const { name, picture } = user_google_json;
 
-    document.getElementById("profile-info").innerHTML = `
+    document.getElementById("profile-info").innerHTML += `
       <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
         <img src="${picture}" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px;">
         <div style="font-size: 1.2rem; font-weight: bold;">${name}</div>
       </div>
     `;
   } else {
-    document.getElementById("profile-info").innerHTML = `
+    document.getElementById("profile-info").innerHTML += `
       <div id="google-signin-btn" style="text-align: center; padding: 20px;">
       <img src="https://www.svgrepo.com/show/382106/user-circle.svg" 
      alt="Usuario no identificado" 
