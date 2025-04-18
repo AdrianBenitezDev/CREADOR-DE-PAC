@@ -14,6 +14,52 @@
     <!-- Botón de inicio de sesión de Google -->
     
     <div id="profile-info"></div>
+
+    <div class="containerApp" id="containerApp">
+        <div id="spiner" class="spinner-overlay">
+            <div class="spinner"></div>
+          </div>
+    
+       <div class="row borde  center">
+        <button id="btnMostrarHeader"">Editar Cabecera del PAC</button>
+    
+        <button onclick="sendAllMails()">Generar Pac</button>
+       </div>
+    
+       <div class="row borde center">
+        
+        <button onclick="obtenerMails(10)">Obtener <b> 10 </b> Datos</button>
+        <button onclick="obtenerMails(20)">Obtener <b> 20 </b> Datos</button>
+        <button onclick="obtenerMails(30)">Obtener <b> 30 </b> Datos</button>
+      </div> 
+    
+    
+       <div class="row borde  center">
+        <div class="row">
+    
+            <input type="text" id="inputBuscar" placeholder="Buscar por DNI, CUIL, APELLIDO, CUPOF">        
+            <button onclick="pegar()">Pegar</button>
+            <button onclick="borrar()">Borrar</button>
+    
+        </div>
+        <button onclick="obtenerMailsPersonalizado()">Buscar</button>
+      </div> 
+    
+    
+        <div id="estado">
+    
+        </div>
+    
+        <div id="containerMails"></div>
+    
+        <script src="userInterface.js"></script>
+    
+        <script type="module" src="headerPac.js"></script>
+    
+        <script src="gestorMail.js"></script>
+    
+    
+    </div>
    
 
     
