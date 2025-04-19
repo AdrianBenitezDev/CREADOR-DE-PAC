@@ -172,3 +172,9 @@ input[type="text"] {
 .casilla:checked + label::before {
   background-color: #e0e0e0;
 }
+
+.mail-info {
+  flex-grow: 1;
+  margin: 0 10px;
+  overflow: hidden;
+}
