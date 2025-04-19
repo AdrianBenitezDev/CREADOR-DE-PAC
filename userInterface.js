@@ -19,5 +19,5 @@ function pegar() {
 
 function redicInfo() {
   window.location.href =
-    "https://adrianbenitezdev.github.io/CREADOR-DE-PAC/error.html"; // Cambiá esto por la URL que quieras
+    "https://adrianbenitezdev.github.io/CREADOR-DE-PAC/info.html"; // Cambiá esto por la URL que quieras
 }
