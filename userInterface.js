@@ -16,3 +16,8 @@ function pegar() {
       console.error("Error al pegar desde el portapapeles:", err);
     });
 }
+
+function redicInfo() {
+  window.location.href =
+    "https://adrianbenitezdev.github.io/CREADOR-DE-PAC/error.html"; // Cambiá esto por la URL que quieras
+}
