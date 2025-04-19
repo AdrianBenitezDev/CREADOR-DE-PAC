@@ -173,8 +173,58 @@ input[type="text"] {
   background-color: #e0e0e0;
 }
 
+
+.mail-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.mail-index {
+  width: 30px;
+  text-align: center;
+}
+
+.checkbox-container {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 .mail-info {
   flex-grow: 1;
   margin: 0 10px;
   overflow: hidden;
+}
+
+.mail-subject {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  max-width: 100%;
+}
+
+.mail-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-dark {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #444;
 }
