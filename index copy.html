@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREADOR DE PAC</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+    
+    <h1> CREADOR DE PAC PARA SECRETARIOS</h1>
+
+    <!-- Botón de inicio de sesión de Google -->
+    
+    <div id="profile-info"></div>
+
+    <div class="center border info">
+        <p class="pinfo">Esta web crea automaticamente las <b>Planillas Adicioanales de Contralo (PAC)</b> obteniedo la información de los correos institucionales</p>
+        
+    </div>
+
+    <div id="spiner" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="center containerApp" id="containerApp">
+        
+        
+        <div class="row containerPAnel">
+                    
+                    <div class="row borde center">
+                        
+                        <button onclick="obtenerMails(10)">Obtener <b> 10 </b> Datos</button>
+                        <button onclick="obtenerMails(20)">Obtener <b> 20 </b> Datos</button>
+                        <button onclick="obtenerMails(30)">Obtener <b> 30 </b> Datos</button>
+                    </div> 
+                    
+                    <div class="borde  center">
+                        <div class="row">
+                    
+                            <input type="text" id="inputBuscar" placeholder="Buscar por DNI, CUIL, APELLIDO, CUPOF">        
+                            <button onclick="obtenerMailsPersonalizado()">Buscar</button>
+                            <button onclick="pegar()">Pegar</button>
+                            <button onclick="borrar()">Borrar</button>
+                    
+                        </div>
+                        
+                    </div> 
+        </div>    
+
+    
+        <div id="containerMails" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    ">
+        <div class="row borde mail-card" id="div_0">
+          <h3 class="mail-index">1</h3>
+          
+          <div class="checkbox-container">
+            <input class="casilla" type="checkbox" id="input_0" name="index">
+            <label for="input_0"></label>
+          </div>
+      
+          <div class="mail-info">
+            <p class="mail-subject">Designación APD FINES 21/03/2025 BENITEZ ADRIAN 3166277</p>
+          </div>
+      
+          <div class="mail-actions">
+            <button class="btn-dark" onclick="verMail(0)">Ver</button>
+            <button class="btn-dark" onclick="obtenerDatosParaPAC(0)">Generar PAC</button>
+          </div>
+        </div>
+      
+        <div class="row borde mail-card" id="div_1">
+          <h3 class="mail-index">2</h3>
+          
+          <div class="checkbox-container">
+            <input class="casilla" type="checkbox" id="input_1" name="index">
+            <label for="input_1"></label>
+          </div>
+      
+          <div class="mail-info">
+            <p class="mail-subject">Designación APD FINES 21/03/2025 BENITEZ ADRIAN 3165765</p>
+          </div>
+      
+          <div class="mail-actions">
+            <button class="btn-dark" onclick="verMail(1)">Ver</button>
+            <button class="btn-dark" onclick="obtenerDatosParaPAC(1)">Generar PAC</button>
+          </div>
+        </div>
+      
+        <div class="row borde mail-card" id="div_2">
+          <h3 class="mail-index">3</h3>
+          
+          <div class="checkbox-container">
+            <input class="casilla" type="checkbox" id="input_2" name="index">
+            <label for="input_2"></label>
+          </div>
+      
+          <div class="mail-info">
+            <p class="mail-subject">Designación APD FINES 21/03/2025 BENITEZ ADRIAN 3165241</p>
+          </div>
+      
+          <div class="mail-actions">
+            <button class="btn-dark" onclick="verMail(2)">Ver</button>
+            <button class="btn-dark" onclick="obtenerDatosParaPAC(2)">Generar PAC</button>
+          </div>
+        </div>
+      
+        <div class="row borde mail-card" id="div_3">
+          <h3 class="mail-index">4</h3>
+          
+          <div class="checkbox-container">
+            <input class="casilla" type="checkbox" id="input_3" name="index">
+            <label for="input_3"></label>
+          </div>
+      
+          <div class="mail-info">
+            <p class="mail-subject">Designación FinEs 2022- CENS 452</p>
+          </div>
+      
+          <div class="mail-actions">
+            <button class="btn-dark" onclick="verMail(3)">Ver</button>
+            <button class="btn-dark" onclick="obtenerDatosParaPAC(3)">Generar PAC</button>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
+    
+    <div class="row banerSuperior center" id="containerApp">
+        
+        <button onclick="reiniciar()">Reiniciar</button>
+
+        <button onclick="sendAllMails()">Generar Pac</button>
+
+    </div>
+
+
+    
+
+    <script src="userInterface.js"></script>
+    <script type="module" src="headerPac.js"></script>
+    <script src="gestorMail.js"></script>
+    <script src="googleUser.js"></script>
+
+    <footer class="footer">
+        <p>
+          Estimado usuario, se informa que esta web no almacena ni distribuye información sensible. Al cerrar la web, se eliminan todos los datos con los que opera.
+        </p>
+        <p>
+          Para más información sobre el manejo de datos puede acceder 
+          <a onclick="redicInfo()">aquí</a>.
+        </p>
+        <p> mail: <b>artbenitez@abc.gob.ar</b></p>
+        
+      </footer>
+      
+</body>
+
+</html>
