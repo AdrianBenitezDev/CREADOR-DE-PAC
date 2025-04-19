@@ -83,11 +83,25 @@ function procesarRespuesta(data) {
       (array) => array.name == "Subject"
     );
 
-    containerMails.innerHTML += `<div id="div_${index}" class="row"> <h3>${
-      index + 1
-    }</h3> <input class="casilla" type="checkbox" id="input_${index}" name="index"> <p>${
-      subject[0].value
-    }</p><button onclick="verMail(${index})">Ver</button><button onclick="obtenerDatosParaPAC(${index})">Generar Pac</button></div>`;
+    containerMails.innerHTML += `
+    <div class="row borde mail-card" id="div_${index}">
+      <h3 class="mail-index">${index + 1}</h3>
+      
+      <div class="checkbox-container">
+        <input class="casilla" type="checkbox" id="input_${index}" name="index">
+        <label for="input_${index}"></label>
+      </div>
+  
+      <div class="mail-info">
+        <p class="mail-subject">${subject[0].value}</p>
+      </div>
+  
+      <div class="mail-actions">
+        <button class="btn-dark" onclick="verMail(${index})">Ver</button>
+        <button class="btn-dark" onclick="obtenerDatosParaPAC(${index})">Generar PAC</button>
+      </div>
+    </div>
+  `;
 
     //procesamos la respuesta, creamos otra variable que contiene los dato decodigicados
     containerMailsDecodificados.push(obtenerCifrado(index));

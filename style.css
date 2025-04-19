@@ -121,3 +121,54 @@ input[type="text"] {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+/* Ocultamos el checkbox original */
+.casilla {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Estilo visual del checkbox */
+.casilla + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  line-height: 20px;
+  color: #333;
+}
+
+/* Caja del checkbox */
+.casilla + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Check marcado */
+.casilla:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Opcional: cambio de fondo al marcar */
+.casilla:checked + label::before {
+  background-color: #e0e0e0;
+}
