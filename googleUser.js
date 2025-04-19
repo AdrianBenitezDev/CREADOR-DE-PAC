@@ -11,7 +11,7 @@ function iniciarLogin() {
 
   const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(
     redirectUri
-  )}&scope=${encodeURIComponent(scope)}&access_type=offline`;
+  )}&scope=${encodeURIComponent(scope)}&access_type=offline&prompt=consent`;
 
   window.open(authUrl, "_blank", "width=500,height=600");
 }
