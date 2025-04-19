@@ -11,10 +11,12 @@ function iniciarLogin() {
 
   const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(
     redirectUri
-  )}&scope=${encodeURIComponent(scope)}&access_type=offline&prompt=consent`;
+  )}&scope=${encodeURIComponent(scope)}&access_type=offline`;
 
   window.open(authUrl, "_blank", "width=500,height=600");
 }
+
+//&prompt=consent
 
 window.addEventListener("message", (event) => {
   if (event.origin !== "https://creador-de-pac-backend.onrender.com") return;
