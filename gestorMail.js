@@ -99,7 +99,7 @@ function procesarRespuesta(data) {
   
       <div class="mail-actions">
         <button class="btn-dark" onclick="verMail(${index})">Ver</button>
-        <button class="btn-dark" onclick="sendMailsPuntual(${index})">Generar PAC</button>
+        <button class="btn-dark" onclick="generarPacPuntual(${index})">Generar PAC</button>
       </div>
     </div>
   `;
@@ -193,8 +193,14 @@ function deshabilitarSpiner() {
   document.getElementById("spiner").style.display = "none";
 }
 
-function obtenerDatosParaPAC(index) {
-  containerMailsDecodificados[index];
+function generarPacPuntual(index) {
+  let headerLocalPac = localStorage.getItem("headerPac");
+
+  if (headerLocalPac) {
+    sendMailsPuntual(index);
+  } else {
+    mostrarFormularioHeader();
+  }
 }
 
 function generarPac() {
