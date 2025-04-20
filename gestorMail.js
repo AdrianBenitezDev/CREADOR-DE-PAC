@@ -2,7 +2,7 @@
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
 
-import { mostrarFormularioHeader } from "/headerPac.js";
+import { mostrarFormularioHeader } from "./headerPac";
 //let arrayDatosParaPac = [];
 
 export function obtenerMails(maxFila) {
