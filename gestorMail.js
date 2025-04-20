@@ -2,6 +2,7 @@
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
 
+import { mostrarFormularioHeader } from "/headerPac.js";
 //let arrayDatosParaPac = [];
 
 export function obtenerMails(maxFila) {
@@ -30,8 +31,6 @@ export function obtenerMails(maxFila) {
       deshabilitarSpiner();
     });
 }
-
-import { mostrarFormularioHeader } from "/headerPac.js";
 
 export function obtenerMailsPersonalizado(maxFila) {
   const datosInput = document.getElementById("inputBuscar").value;
