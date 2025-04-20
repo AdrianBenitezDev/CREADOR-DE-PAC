@@ -13,7 +13,7 @@ document
   .getElementById("btnMostrarHeader")
   .addEventListener("click", mostrarFormularioHeader);
 
-function mostrarFormularioHeader() {
+export function mostrarFormularioHeader() {
   // Crear fondo oscuro
   const fondo = document.createElement("div");
   fondo.style.position = "fixed";

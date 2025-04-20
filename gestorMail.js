@@ -1,6 +1,7 @@
 //variable para mostrar la respuesta de los mails
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
+import { mostrarFormularioHeader } from "/headerPac.js";
 //let arrayDatosParaPac = [];
 
 function obtenerMails(maxFila) {
@@ -88,7 +89,7 @@ function procesarRespuesta(data) {
       <h3 class="mail-index">${index + 1}</h3>
       
       <div class="checkbox-container">
-        <input class="casilla" type="checkbox" id="input_${index}" name="index">
+        <input class="casilla" type="checkbox" checked=true id="input_${index}" name="index">
         <label for="input_${index}"></label>
       </div>
   
@@ -196,42 +197,55 @@ function obtenerDatosParaPAC(index) {
   containerMailsDecodificados[index];
 }
 
-function sendAllMails() {
+function generarPac() {
+  let headerLocalPac = localStorage.getItem("headerPac");
+
+  if (headerLocalPac) {
+    sendMails();
+  } else {
+    mostrarFormularioHeader();
+  }
+}
+
+function sendMails() {
   let arrayDatosParaPac = [];
   //creamos un objeto que contiene todos los datos para el pac
 
   if (containerMailsDecodificados.length > 0) {
     containerMailsDecodificados.forEach((element, index) => {
-      let jsonPac = {
-        cupof: "",
-        dni: "",
-        name: "",
-        revista: "",
-        pid: "",
-        mod: "",
-        year: "",
-        seccion: "",
-        turno: "",
-        desde: "",
-        hasta: "",
-      };
+      let valueCheckBox = document.getElementById("input_" + index).checked;
+      if (valueCheckBox) {
+        let jsonPac = {
+          cupof: "",
+          dni: "",
+          name: "",
+          revista: "",
+          pid: "",
+          mod: "",
+          year: "",
+          seccion: "",
+          turno: "",
+          desde: "",
+          hasta: "",
+        };
 
-      jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
-      let dni = extraerDeMensaje(element, "CUIL/DNI:");
-      jsonPac.dni = dni.slice(2, -1);
-      jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
-      jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
-      jsonPac.pid = extraerDeMensaje(element, "PID:");
-      jsonPac.mod = extraerDeMensaje(element, "Módulos:");
-      let cursoSeccion = extraerDeMensaje(element, "Curso y Sección:");
-      jsonPac.year = cursoSeccion[0];
-      jsonPac.seccion =
-        cursoSeccion.length == 3 ? cursoSeccion[2] : cursoSeccion[1];
-      jsonPac.turno = extraerDeMensaje(element, "Turno:");
-      jsonPac.desde = extraerDeMensaje(element, "Desde:");
-      jsonPac.hasta = extraerDeMensaje(element, "Hasta:");
+        jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
+        let dni = extraerDeMensaje(element, "CUIL/DNI:");
+        jsonPac.dni = dni.slice(2, -1);
+        jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
+        jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
+        jsonPac.pid = extraerDeMensaje(element, "PID:");
+        jsonPac.mod = extraerDeMensaje(element, "Módulos:");
+        let cursoSeccion = extraerDeMensaje(element, "Curso y Sección:");
+        jsonPac.year = cursoSeccion[0];
+        jsonPac.seccion =
+          cursoSeccion.length == 3 ? cursoSeccion[2] : cursoSeccion[1];
+        jsonPac.turno = extraerDeMensaje(element, "Turno:");
+        jsonPac.desde = extraerDeMensaje(element, "Desde:");
+        jsonPac.hasta = extraerDeMensaje(element, "Hasta:");
 
-      arrayDatosParaPac.push(jsonPac);
+        arrayDatosParaPac.push(jsonPac);
+      }
     });
     console.log(arrayDatosParaPac);
 
