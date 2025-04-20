@@ -99,7 +99,7 @@ function procesarRespuesta(data) {
   
       <div class="mail-actions">
         <button class="btn-dark" onclick="verMail(${index})">Ver</button>
-        <button class="btn-dark" onclick="obtenerDatosParaPAC(${index})">Generar PAC</button>
+        <button class="btn-dark" onclick="sendMailsPuntual(${index})">Generar PAC</button>
       </div>
     </div>
   `;
@@ -205,6 +205,48 @@ function generarPac() {
   } else {
     mostrarFormularioHeader();
   }
+}
+
+function sendMailsPuntual(index) {
+  let arrayDatosParaPac = [];
+  //creamos un objeto que contiene todos los datos para el pac
+
+  let element = containerMailsDecodificados[index];
+
+  let jsonPac = {
+    cupof: "",
+    dni: "",
+    name: "",
+    revista: "",
+    pid: "",
+    mod: "",
+    year: "",
+    seccion: "",
+    turno: "",
+    desde: "",
+    hasta: "",
+  };
+
+  jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
+  let dni = extraerDeMensaje(element, "CUIL/DNI:");
+  jsonPac.dni = dni.slice(2, -1);
+  jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
+  jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
+  jsonPac.pid = extraerDeMensaje(element, "PID:");
+  jsonPac.mod = extraerDeMensaje(element, "Módulos:");
+  let cursoSeccion = extraerDeMensaje(element, "Curso y Sección:");
+  jsonPac.year = cursoSeccion[0];
+  jsonPac.seccion =
+    cursoSeccion.length == 3 ? cursoSeccion[2] : cursoSeccion[1];
+  jsonPac.turno = extraerDeMensaje(element, "Turno:");
+  jsonPac.desde = extraerDeMensaje(element, "Desde:");
+  jsonPac.hasta = extraerDeMensaje(element, "Hasta:");
+
+  arrayDatosParaPac.push(jsonPac);
+
+  console.log(arrayDatosParaPac);
+
+  mostrarPopupOpciones(arrayDatosParaPac);
 }
 
 function sendMails() {
