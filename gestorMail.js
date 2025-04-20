@@ -1,10 +1,10 @@
 //variable para mostrar la respuesta de los mails
 let respuestaObtenida = [];
 let containerMailsDecodificados = [];
-import { mostrarFormularioHeader } from "/headerPac.js";
+
 //let arrayDatosParaPac = [];
 
-function obtenerMails(maxFila) {
+export function obtenerMails(maxFila) {
   habilitarSpiner();
 
   // Realizamos la solicitud a la API de Gmail con el token
@@ -31,7 +31,9 @@ function obtenerMails(maxFila) {
     });
 }
 
-function obtenerMailsPersonalizado(maxFila) {
+import { mostrarFormularioHeader } from "/headerPac.js";
+
+export function obtenerMailsPersonalizado(maxFila) {
   const datosInput = document.getElementById("inputBuscar").value;
 
   let datosConsulta = "";
@@ -167,7 +169,7 @@ function devolver(encodedMessage) {
   }
 }
 
-function verMail(indice) {
+export function verMail(indice) {
   // Crear una ventana emergente con el contenido decodificado
   const popup = window.open(
     "",
@@ -193,7 +195,7 @@ function deshabilitarSpiner() {
   document.getElementById("spiner").style.display = "none";
 }
 
-function generarPacPuntual(index) {
+export function generarPacPuntual(index) {
   let headerLocalPac = localStorage.getItem("headerPac");
 
   if (headerLocalPac) {
@@ -203,7 +205,7 @@ function generarPacPuntual(index) {
   }
 }
 
-function generarPac() {
+export function generarPac() {
   let headerLocalPac = localStorage.getItem("headerPac");
 
   if (headerLocalPac) {
