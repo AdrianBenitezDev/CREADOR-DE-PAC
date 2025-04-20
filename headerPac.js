@@ -5,7 +5,7 @@ function buscarHeader() {
     window.headerPac = JSON.parse(headerLocalPac);
     console.log("Datos cargados:", window.headerPac);
   } else {
-    mostrarFormularioHeader();
+    window.mostrarFormularioHeader();
   }
 }
 
@@ -13,7 +13,7 @@ document
   .getElementById("btnMostrarHeader")
   .addEventListener("click", mostrarFormularioHeader);
 
-export function mostrarFormularioHeader() {
+window.mostrarFormularioHeader = function () {
   // Crear fondo oscuro
   const fondo = document.createElement("div");
   fondo.style.position = "fixed";
@@ -214,7 +214,7 @@ export function mostrarFormularioHeader() {
       console.error(error);
     }
   };
-}
+};
 
 // Llamar a la función principal
 buscarHeader();
