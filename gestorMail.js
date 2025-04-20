@@ -236,7 +236,7 @@ function sendMailsPuntual(index) {
 
   jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
   let dni = extraerDeMensaje(element, "CUIL/DNI:");
-  jsonPac.dni = dni.slice(2, -1);
+  jsonPac.dni = dni.length > 8 ? dni.slice(2, -1) : dni;
   jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
   jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
   jsonPac.pid = extraerDeMensaje(element, "PID:");
