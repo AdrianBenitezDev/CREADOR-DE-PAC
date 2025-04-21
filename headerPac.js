@@ -9,6 +9,10 @@ function buscarHeader() {
   }
 }
 
+document
+  .getElementById("btnMostrarHeader")
+  .addEventListener("click", window.mostrarFormularioHeader);
+
 window.mostrarFormularioHeader = function () {
   // Crear fondo oscuro
   const fondo = document.createElement("div");
