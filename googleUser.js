@@ -79,8 +79,6 @@ function salir() {
 
 obtenerIdUsuario();
 
-setearContainerApp("flex");
-
 function setearContainerApp(valor) {
   let arrayContainer = document.querySelectorAll("#containerApp");
 
