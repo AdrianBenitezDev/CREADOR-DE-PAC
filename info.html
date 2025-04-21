@@ -1,13 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREADOR-DE-PAC INFO</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CREADOR DE PAC INFO</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #2c3e50;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .title{
+        color: #333;
+        text-align: center;
+        border-bottom: 2px solid #3b3a3a;
+
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+    <h1 class="title">CREADOR DE PAC PARA SECRETARIOS</h1>
+    <br>
+
+  <div class="container">
     
-    
+    <h1>Políticas de Uso de Información</h1>
+    <p>Bajo ningún punto de vista esta web almacena o distribuye información sensible.</p>
+
+    <h1>Información de las Tecnologías Utilizadas</h1>
+    <ul>
+      <li>Base de datos: MongoDB Atlas</li>
+      <li>Servidor: Render</li>
+      <li>Backend: Node.js con Express</li>
+      <li>Frontend: HTML, JavaScript, CSS</li>
+      <li>Frontend alojado en: GitHub Pages</li>
+    </ul>
+
+    <h1>Permisos</h1>
+    <p>*Los permisos suministrados por el usuario permiten a esta web:</p>
+    <ul>
+      <li>Leer los correos electrónicos (no modificarlos)</li>
+      <li>Leer el nombre de usuario y dirección de correo electrónico (utilizados para mostrar la foto de perfil, nombre y correo al inicio de la web)</li>
+    </ul>
+
+    <h1>Lógica Programática</h1>
+    <p>*Esta web:</p>
+    <ul>
+      <li>Busca los datos para armar los PAC en los correos del usuario logueado</li>
+      <li>Una vez que se arma el PAC, no se guarda información sensible de ningún agente</li>
+    </ul>
+
+    <p><strong>¿Qué se almacena en la base de datos?</strong><br>
+    Se almacena del usuario logueado: nombre y correo electrónico para reconocerlo al reingresar, evitando tener que loguearse constantemente.</p>
+
+    <h1>Importante</h1>
+    <p>No se guardan en el servidor los PAC generados por esta web. Son de creación momentánea en la computadora del usuario.</p>
+
+    <button onclick="window.location.href='https://adrianbenitezdev.github.io/CREADOR-DE-PAC/index.html'">Volver</button>
+  </div>
 </body>
 </html>
+
