@@ -60,6 +60,7 @@ function obtenerIdUsuario() {
      style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 10px; background-color: #f0f0f0; padding: 10px;">
 
         <button onclick="iniciarLogin()" style="padding: 10px 20px; font-size: 1rem;">Acceder</button>
+        <button id="btnMostrarHeader">Editar Cabecera del PAC</button>
       </div>
     `;
     setearContainerApp("none");
@@ -85,6 +86,8 @@ function setearContainerApp(valor) {
   arrayContainer.forEach((element) => {
     element.style.display = valor;
   });
+
+  document.getElementById("btnMostrarHeader").display = valor;
 }
 
 function obtenerTokensGlobales(sub) {
