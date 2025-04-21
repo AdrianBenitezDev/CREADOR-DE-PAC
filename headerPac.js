@@ -9,10 +9,6 @@ function buscarHeader() {
   }
 }
 
-document
-  .getElementById("btnMostrarHeader")
-  .addEventListener("click", mostrarFormularioHeader);
-
 window.mostrarFormularioHeader = function () {
   // Crear fondo oscuro
   const fondo = document.createElement("div");
@@ -215,9 +211,6 @@ window.mostrarFormularioHeader = function () {
     }
   };
 };
-
-// Llamar a la función principal
-buscarHeader();
 
 function iniciarApp() {
   //conectando con elservidor
