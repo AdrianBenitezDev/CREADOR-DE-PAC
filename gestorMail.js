@@ -237,15 +237,19 @@ function sendMailsPuntual(index) {
   jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
   let dni = extraerDeMensaje(element, "CUIL/DNI:");
   console.log("---dni: ", dni);
-  jsonPac.dni = dni.length > 8 ? dni.slice(2, -1) : dni;
+  jsonPac.dni = dni !== null ? (dni.length > 8 ? dni.slice(2, -1) : dni) : null;
   jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
   jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
   jsonPac.pid = extraerDeMensaje(element, "PID:");
   jsonPac.mod = extraerDeMensaje(element, "Módulos:");
   let cursoSeccion = extraerDeMensaje(element, "Curso y Sección:");
-  jsonPac.year = cursoSeccion[0];
+  jsonPac.year = cursoSeccion !== null ? cursoSeccion[0] : null;
   jsonPac.seccion =
-    cursoSeccion.length == 3 ? cursoSeccion[2] : cursoSeccion[1];
+    cursoSeccion !== null
+      ? cursoSeccion.length == 3
+        ? cursoSeccion[2]
+        : cursoSeccion[1]
+      : null;
   jsonPac.turno = extraerDeMensaje(element, "Turno:");
   jsonPac.desde = extraerDeMensaje(element, "Desde:");
   jsonPac.hasta = extraerDeMensaje(element, "Hasta:");
@@ -454,7 +458,6 @@ function extraerDeMensaje(mensaje, despuesDe) {
     return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
   } catch (error) {
     console.log("Error al extraer: ", despuesDe);
-    return "___";
   }
 }
 
