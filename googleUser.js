@@ -87,7 +87,7 @@ function setearContainerApp(valor) {
     element.style.display = valor;
   });
 
-  document.getElementById("btnMostrarHeader").display = valor;
+  document.getElementById("btnMostrarHeader").style.display = valor;
 }
 
 function obtenerTokensGlobales(sub) {
