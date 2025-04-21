@@ -271,7 +271,7 @@ input[type="text"] {
     text-align: center;
     border-top: 1px solid #333;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
-    bottom: 0px;
+    
 }
 
 .footer p {
