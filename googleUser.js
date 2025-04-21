@@ -1,6 +1,6 @@
 function iniciarLogin() {
   const clientId =
-    "45594330364-68qsjfc7lo95iq95fvam08hb55oktu4c.apps.googleusercontent.com";
+    "613161285651-obf7jk330d8f3uprmgvsirr2ca61g9ia.apps.googleusercontent.com";
   const redirectUri =
     "https://creador-de-pac-backend.onrender.com/oauth2callback";
   const scope = [
