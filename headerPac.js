@@ -11,7 +11,7 @@ function buscarHeader() {
 
 document
   .getElementById("btnMostrarHeader")
-  .addEventListener("click", window.mostrarFormularioHeader);
+  .addEventListener("click", () => window.mostrarFormularioHeader());
 
 window.mostrarFormularioHeader = function () {
   // Crear fondo oscuro
