@@ -236,6 +236,7 @@ function sendMailsPuntual(index) {
 
   jsonPac.cupof = extraerDeMensaje(element, "CUPOF:");
   let dni = extraerDeMensaje(element, "CUIL/DNI:");
+  console.log("---dni: ", dni);
   jsonPac.dni = dni.length > 8 ? dni.slice(2, -1) : dni;
   jsonPac.name = extraerDeMensaje(element, "Nombre y Apellido:");
   jsonPac.revista = extraerDeMensaje(element, "Situacion de revista:");
@@ -453,6 +454,7 @@ function extraerDeMensaje(mensaje, despuesDe) {
     return resto.slice(0, finDeLinea).trim(); // Hasta el primer salto de línea
   } catch (error) {
     console.log("Error al extraer: ", despuesDe);
+    return "___";
   }
 }
 
