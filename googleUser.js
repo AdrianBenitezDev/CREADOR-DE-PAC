@@ -52,6 +52,10 @@ function obtenerIdUsuario() {
     `;
 
     obtenerTokensGlobales(sub);
+
+    document
+      .getElementById("btnMostrarHeader")
+      .addEventListener("click", () => window.mostrarFormularioHeader());
   } else {
     document.getElementById("profile-info").innerHTML = `
       <div class="column" id="google-signin-btn" style="text-align: center; padding: 20px;">
@@ -64,6 +68,10 @@ function obtenerIdUsuario() {
       </div>
     `;
     setearContainerApp("none");
+
+    document
+      .getElementById("btnMostrarHeader")
+      .addEventListener("click", () => window.mostrarFormularioHeader());
   }
 }
 

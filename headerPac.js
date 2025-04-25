@@ -9,10 +9,6 @@ function buscarHeader() {
   }
 }
 
-document
-  .getElementById("btnMostrarHeader")
-  .addEventListener("click", () => window.mostrarFormularioHeader());
-
 window.mostrarFormularioHeader = function () {
   // Crear fondo oscuro
   const fondo = document.createElement("div");
@@ -215,10 +211,3 @@ window.mostrarFormularioHeader = function () {
     }
   };
 };
-
-function iniciarApp() {
-  //conectando con elservidor
-  //obteniendo datos para el pac
-  //Generando Pac
-  //mostramos los pacs
-}
