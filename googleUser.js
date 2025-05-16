@@ -2,7 +2,7 @@ function iniciarLogin() {
   const clientId =
     "613161285651-obf7jk330d8f3uprmgvsirr2ca61g9ia.apps.googleusercontent.com";
   const redirectUri =
-    "https://creador-de-pac-backend.onrender.com/oauth2callback";
+    "https://creador-de-pac-backend-yqxh.onrender.com/oauth2callback";
   const scope = [
     "https://www.googleapis.com/auth/gmail.readonly",
     "https://www.googleapis.com/auth/userinfo.profile",
