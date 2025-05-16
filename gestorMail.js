@@ -9,7 +9,7 @@ function obtenerMails(maxFila) {
   habilitarSpiner();
 
   // Realizamos la solicitud a la API de Gmail con el token
-  const url = `https://creador-de-pac-backend.onrender.com/obtenerMails`; // Consulta con asunto "designación"
+  const url = `https://creador-de-pac-backend-yqxh.onrender.com/obtenerMails`; // Consulta con asunto "designación"
 
   fetch(url, {
     method: "POST",
